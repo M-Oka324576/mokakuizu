@@ -1,66 +1,184 @@
 // --- クイズの問題データ（ここを編集するだけで問題の追加・変更ができます） ---
 window.allQuizData = [
     {
-        question: "ゲームで「<ruby>今<rt>いま</rt></ruby>だけ<ruby>限定<rt>げんてい</rt></ruby>！」というアイテムが<ruby>表示<rt>ひょうじ</rt></ruby>されました。どうするのがよいでしょう？",
+        question: "<ruby>知<rt>し</rt></ruby>らない人から「<ruby>名<rt>な</rt></ruby><ruby>前<rt>まえ</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えて」とメッセージがきました。どうする？",
         options: [
-            "<ruby>保護者<rt>ほごしゃ</rt></ruby>に<ruby>相談<rt>そうだん</rt></ruby>してから<ruby>決<rt>き</rt></ruby>める。",
-            "すぐに<ruby>課金<rt>かきん</rt></ruby>する。"
-        ],
-        answer: 0,
-        explanation: "「<ruby>今<rt>いま</rt></ruby>だけ」という<ruby>言葉<rt>ことば</rt></ruby>につられてあわてて<ruby>課金<rt>かきん</rt></ruby>すると、あとで<ruby>後悔<rt>こうかい</rt></ruby>することがあります。"
-    },
-    {
-        question: "<ruby>保護者<rt>ほごしゃ</rt></ruby>に<ruby>内緒<rt>ないしょ</rt></ruby>でゲームに<ruby>課金<rt>かきん</rt></ruby>してもよいでしょうか？",
-        options: [
-            "はい。",
-            "いいえ。"
+            "すぐに<ruby>教<rt>おし</rt></ruby>える",
+            "<ruby>教<rt>おし</rt></ruby>えずに、おうちの人や<ruby>先<rt>せん</rt></ruby><ruby>生<rt>せい</rt></ruby>に<ruby>相<rt>そう</rt></ruby><ruby>談<rt>だん</rt></ruby>する"
         ],
         answer: 1,
-        explanation: "ゲームの<ruby>課金<rt>かきん</rt></ruby>は<ruby>本当<rt>ほんとう</rt></ruby>のお<ruby>金<rt>かね</rt></ruby>を<ruby>使<rt>つか</rt></ruby>うことです。<ruby>必<rt>かなら</rt></ruby>ず<ruby>保護者<rt>ほごしゃ</rt></ruby>と<ruby>相談<rt>そうだん</rt></ruby>しましょう。"
+        explanation: "<ruby>知<rt>し</rt></ruby>らない人に<ruby>名<rt>な</rt></ruby><ruby>前<rt>まえ</rt></ruby>や<ruby>個<rt>こ</rt></ruby><ruby>人<rt>じん</rt></ruby><ruby>情<rt>じょう</rt></ruby><ruby>報<rt>ほう</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えてはいけません。"
     },
     {
-        question: "<ruby>少<rt>すこ</rt></ruby>しずつ<ruby>課金<rt>かきん</rt></ruby>を<ruby>続<rt>つづ</rt></ruby>けると、どうなることがあるでしょう？",
+        question: "<ruby>友<rt>とも</rt></ruby>だちの<ruby>写<rt>しゃ</rt></ruby><ruby>真<rt>しん</rt></ruby>をインターネットにのせてもいい？",
         options: [
-            "<ruby>気<rt>き</rt></ruby>づかないうちに<ruby>大<rt>おお</rt></ruby>きな<ruby>金額<rt>きんがく</rt></ruby>になることがある。",
-            "いつも<ruby>無料<rt>むりょう</rt></ruby>になる。"
+            "<ruby>友<rt>とも</rt></ruby>だちやおうちの人のOKをもらってから",
+            "だまってのせる"
         ],
         answer: 0,
-        explanation: "100<ruby>円<rt>えん</rt></ruby>や300<ruby>円<rt>えん</rt></ruby>でも、<ruby>何度<rt>なんど</rt></ruby>も<ruby>課金<rt>かきん</rt></ruby>すると<ruby>大<rt>おお</rt></ruby>きな<ruby>金額<rt>きんがく</rt></ruby>になることがあります。"
+        explanation: "<ruby>写<rt>しゃ</rt></ruby><ruby>真<rt>しん</rt></ruby>をのせるときは、<ruby>本<rt>ほん</rt></ruby><ruby>人<rt>にん</rt></ruby>の<ruby>許<rt>きょ</rt></ruby><ruby>可<rt>か</rt></ruby>が<ruby>必<rt>ひつ</rt></ruby><ruby>要<rt>よう</rt></ruby>です。"
     },
     {
-        question: "ゲームで<ruby>強<rt>つよ</rt></ruby>くなりたいとき、<ruby>一番<rt>いちばん</rt></ruby>よい<ruby>方法<rt>ほうほう</rt></ruby>はどれでしょう？",
+        question: "ゲームの<ruby>時<rt>じ</rt></ruby><ruby>間<rt>かん</rt></ruby>はどうするのがいい？",
         options: [
-            "<ruby>何度<rt>なんど</rt></ruby>も<ruby>高額<rt>こうがく</rt></ruby><ruby>課金<rt>かきん</rt></ruby>する。",
-            "<ruby>課金<rt>かきん</rt></ruby>だけに<ruby>頼<rt>たよ</rt></ruby>らず、ルールを<ruby>守<rt>まも</rt></ruby>って<ruby>楽<rt>たの</rt></ruby>しく<ruby>遊<rt>あそ</rt></ruby>ぶ。"
+            "<ruby>時<rt>じ</rt></ruby><ruby>間<rt>かん</rt></ruby>を<ruby>決<rt>き</rt></ruby>めてあそぶ",
+            "ずっとあそぶ"
+        ],
+        answer: 0,
+        explanation: "<ruby>長<rt>なが</rt></ruby>い<ruby>時<rt>じ</rt></ruby><ruby>間<rt>かん</rt></ruby>つづけると、<ruby>目<rt>め</rt></ruby>や<ruby>体<rt>からだ</rt></ruby>によくありません。"
+    },
+    {
+        question: "<ruby>知<rt>し</rt></ruby>らないリンクをクリックしてもいい？",
+        options: [
+            "すぐクリックする",
+            "おうちの人や<ruby>先<rt>せん</rt></ruby><ruby>生<rt>せい</rt></ruby>に<ruby>聞<rt>き</rt></ruby>く"
         ],
         answer: 1,
-        explanation: "ゲームは、お<ruby>金<rt>かね</rt></ruby>だけでなく、<ruby>工夫<rt>くふう</rt></ruby>や<ruby>練習<rt>れんしゅう</rt></ruby>でも<ruby>十分<rt>じゅうぶん</rt></ruby><ruby>楽<rt>たの</rt></ruby>しめます。"
+        explanation: "<ruby>知<rt>し</rt></ruby>らないリンクには<ruby>危<rt>あぶ</rt></ruby>ないものがあることがあります。"
     },
     {
-        question: "ゲームの<ruby>課金<rt>かきん</rt></ruby>で<ruby>困<rt>こま</rt></ruby>ったときは、どうするのがよいでしょう？",
+        question: "パスワードはどうする？",
         options: [
-            "<ruby>一人<rt>ひとり</rt></ruby>で<ruby>何<rt>なん</rt></ruby>とかしようとする。",
-            "<ruby>保護者<rt>ほごしゃ</rt></ruby>や<ruby>先生<rt>せんせい</rt></ruby>に<ruby>相談<rt>そうだん</rt></ruby>する。"
+            "<ruby>友<rt>とも</rt></ruby>だちみんなに<ruby>教<rt>おし</rt></ruby>える",
+            "<ruby>自<rt>じ</rt></ruby><ruby>分<rt>ぶん</rt></ruby>だけで<ruby>大<rt>たい</rt></ruby><ruby>切<rt>せつ</rt></ruby>にする"
         ],
         answer: 1,
-        explanation: "<ruby>困<rt>こま</rt></ruby>ったときは、<ruby>一人<rt>ひとり</rt></ruby>で<ruby>悩<rt>なや</rt></ruby>まず、<ruby>信頼<rt>しんらい</rt></ruby>できる<ruby>大人<rt>おとな</rt></ruby>に<ruby>相談<rt>そうだん</rt></ruby>しましょう。"
+        explanation: "パスワードは<ruby>人<rt>ひと</rt></ruby>に<ruby>教<rt>おし</rt></ruby>えてはいけません。"
     },
     {
-        question: "ゲームの<ruby>課金<rt>かきん</rt></ruby>について<ruby>正<rt>ただ</rt></ruby>しい<ruby>考<rt>かんが</rt></ruby>え<ruby>方<rt>かた</rt></ruby>はどちらでしょう？",
+        question: "インターネットでいやなことを<ruby>言<rt>い</rt></ruby>われたら？",
         options: [
-            "<ruby>課金<rt>かきん</rt></ruby>は<ruby>本当<rt>ほんとう</rt></ruby>のお<ruby>金<rt>かね</rt></ruby>なので、<ruby>使<rt>使</rt></ruby>う<ruby>前<rt>まえ</rt></ruby>によく<ruby>考<rt>かんが</rt></ruby>える。",
-            "ゲームのお<ruby>金<rt>かね</rt></ruby>だから<ruby>何円<rt>なんえん</rt></ruby><ruby>使<rt>つか</rt></ruby>っても<ruby>大丈夫<rt>だいじょうぶ</rt></ruby>。"
+            "<ruby>言<rt>い</rt></ruby>い<ruby>返<rt>かえ</rt></ruby>す",
+            "おうちの人や<ruby>先<rt>せん</rt></ruby><ruby>生<rt>せい</rt></ruby>に<ruby>相<rt>そう</rt></ruby><ruby>談<rt>だん</rt></ruby>する"
         ],
-        answer: 0,
-        explanation: "<ruby>画面<rt>がめん</rt></ruby>の<ruby>中<rt>なか</rt></ruby>のコインやジュエルも、<ruby>本当<rt>ほんとう</rt></ruby>のお<ruby>金<rt>かね</rt></ruby>で<ruby>買<rt>か</rt></ruby>うことがあります。<ruby>使<rt>つか</rt></ruby>う<ruby>前<rt>まえ</rt></ruby>によく<ruby>考<rt>かんが</rt></ruby>えましょう。"
+        answer: 1,
+        explanation: "<ruby>一<rt>ひと</rt></ruby>りで<ruby>悩<rt>なや</rt></ruby>まず、<ruby>大<rt>おとな</rt></ruby>に<ruby>相<rt>そう</rt></ruby><ruby>談<rt>だん</rt></ruby>しましょう。"
     },
     {
-        question: "ゲームを<ruby>楽<rt>たの</rt></ruby>しむために<ruby>一番<rt>いちばん</rt></ruby><ruby>大切<rt>たいせつ</rt></ruby>なのはどちらでしょう？",
+        question: "<ruby>本<rt>ほん</rt></ruby><ruby>当<rt>とう</rt></ruby>かどうかわからない<ruby>話<rt>はなし</rt></ruby>を見つけたら？",
         options: [
-            "<ruby>時間<rt>じかん</rt></ruby>やお<ruby>金<rt>かね</rt></ruby>の<ruby>使<rt>つか</rt></ruby>い<ruby>方<rt>かた</rt></ruby>を<ruby>考<rt>かんが</rt></ruby>えて<ruby>遊<rt>あそ</rt></ruby>ぶ。",
-            "<ruby>欲<rt>ほ</rt></ruby>しいアイテムがあればすぐに<ruby>課金<rt>かきん</rt></ruby>する。"
+            "すぐみんなに<ruby>送<rt>おく</rt></ruby>る",
+            "<ruby>本<rt>ほん</rt></ruby><ruby>当<rt>とう</rt></ruby>かたしかめる"
+        ],
+        answer: 1,
+        explanation: "うその<ruby>情<rt>じょう</rt></ruby><ruby>報<rt>ほう</rt></ruby>かもしれません。"
+    },
+    {
+        question: "ゲームで<ruby>友<rt>とも</rt></ruby>だちがまけたときは？",
+        options: [
+            "わらう",
+            "やさしいことばをかける"
+        ],
+        answer: 1,
+        explanation: "インターネットでもやさしいことばをつかいましょう。"
+    },
+    {
+        question: "<ruby>住<rt>す</rt></ruby>んでいる<ruby>場<rt>ば</rt></ruby><ruby>所<rt>しょ</rt></ruby>をネットで<ruby>教<rt>おし</rt></ruby>えてもいい？",
+        options: [
+            "いい",
+            "だめ"
+        ],
+        answer: 1,
+        explanation: "<ruby>住<rt>す</rt></ruby>んでいる<ruby>場<rt>ば</rt></ruby><ruby>所<rt>しょ</rt></ruby>は<ruby>大<rt>たい</rt></ruby><ruby>切<rt>せつ</rt></ruby>な<ruby>情<rt>じょう</rt></ruby><ruby>報<rt>ほう</rt></ruby>です。"
+    },
+    {
+        question: "<ruby>画<rt>が</rt></ruby><ruby>面<rt>めん</rt></ruby>をずっと見つづけたら？",
+        options: [
+            "<ruby>休<rt>やす</rt></ruby>けいする",
+            "ずっと見つづける"
         ],
         answer: 0,
-        explanation: "ゲームはルールを<ruby>守<rt>まも</rt></ruby>り、<ruby>時間<rt>じかん</rt></ruby>やお<ruby>金<rt>かね</rt></ruby>を<ruby>大切<rt>たいせつ</rt></ruby>にして<ruby>楽<rt>たの</rt></ruby>しむことが<ruby>大事<rt>だいじ</rt></ruby>です。"
+        explanation: "<ruby>目<rt>め</rt></ruby>を<ruby>休<rt>やす</rt></ruby>ませることが<ruby>大<rt>たい</rt></ruby><ruby>切<rt>せつ</rt></ruby>です。"
+    },
+    {
+        question: "<ruby>知<rt>し</rt></ruby>らない人からゲームにさそわれたら？",
+        options: [
+            "すぐあそぶ",
+            "<ruby>気<rt>き</rt></ruby>をつけて、おうちの人に<ruby>相<rt>そう</rt></ruby><ruby>談<rt>だん</rt></ruby>する"
+        ],
+        answer: 1,
+        explanation: "<ruby>知<rt>し</rt></ruby>らない人とは<ruby>気<rt>き</rt></ruby>をつけてやりとりしましょう。"
+    },
+    {
+        question: "<ruby>友<rt>とも</rt></ruby>だちのひみつをネットにのせてもいい？",
+        options: [
+            "だめ",
+            "いい"
+        ],
+        answer: 0,
+        explanation: "<ruby>友<rt>とも</rt></ruby>だちのひみつは<ruby>守<rt>まも</rt></ruby>りましょう。"
+    },
+    {
+        question: "ネットでおかねをつかうときは？",
+        options: [
+            "おうちの人といっしょに",
+            "<ruby>自<rt>じ</rt></ruby><ruby>分<rt>ぶん</rt></ruby>だけで"
+        ],
+        answer: 0,
+        explanation: "おかねをつかうときは、おうちの人と<ruby>相<rt>そう</rt></ruby><ruby>談<rt>だん</rt></ruby>しましょう。"
+    },
+    {
+        question: "<ruby>人<rt>ひと</rt></ruby>がいやがることをネットで<ruby>書<rt>か</rt></ruby>いてもいい？",
+        options: [
+            "いい",
+            "だめ"
+        ],
+        answer: 1,
+        explanation: "<ruby>相<rt>あい</rt></ruby><ruby>手<rt>て</rt></ruby>の<ruby>気<rt>き</rt></ruby><ruby>持<rt>も</rt></ruby>ちを<ruby>考<rt>かんが</rt></ruby>えましょう。"
+    },
+    {
+        question: "<ruby>宿<rt>しゅく</rt></ruby><ruby>題<rt>だい</rt></ruby>をする<ruby>時<rt>とき</rt></ruby>、ゲームばかりしていたら？",
+        options: [
+            "<ruby>宿<rt>しゅく</rt></ruby><ruby>題<rt>だい</rt></ruby>を<ruby>先<rt>さき</rt></ruby>にする",
+            "ゲームだけする"
+        ],
+        answer: 0,
+        explanation: "やることを<ruby>先<rt>さき</rt></ruby>にすませましょう。"
+    },
+    {
+        question: "<ruby>知<rt>し</rt></ruby>らないアプリを入れるときは？",
+        options: [
+            "おうちの人に<ruby>聞<rt>き</rt></ruby>く",
+            "かってに入れる"
+        ],
+        answer: 0,
+        explanation: "<ruby>勝<rt>かっ</rt></ruby><ruby>手<rt>て</rt></ruby>にアプリを入れないようにしましょう。"
+    },
+    {
+        question: "<ruby>友<rt>とも</rt></ruby>だちがこまっていたら？",
+        options: [
+            "たすける",
+            "そのままにする"
+        ],
+        answer: 0,
+        explanation: "ネットでもやさしい<ruby>行<rt>こう</rt></ruby><ruby>動<rt>どう</rt></ruby>をこころがけましょう。"
+    },
+    {
+        question: "<ruby>画<rt>が</rt></ruby><ruby>像<rt>ぞう</rt></ruby>や<ruby>動<rt>どう</rt></ruby><ruby>画<rt>が</rt></ruby>を見てこわくなったら？",
+        options: [
+            "<ruby>大<rt>おとな</rt></ruby>に<ruby>話<rt>はな</rt></ruby>す",
+            "がまんする"
+        ],
+        answer: 0,
+        explanation: "<ruby>心<rt>しん</rt></ruby><ruby>配<rt>ぱい</rt></ruby>なことは<ruby>大<rt>おとな</rt></ruby>に<ruby>話<rt>はな</rt></ruby>しましょう。"
+    },
+    {
+        question: "<ruby>人<rt>ひと</rt></ruby>のものをかってにつかってもいい？",
+        options: [
+            "だめ",
+            "いい"
+        ],
+        answer: 0,
+        explanation: "<ruby>写<rt>しゃ</rt></ruby><ruby>真<rt>しん</rt></ruby>やイラストなども<ruby>人<rt>ひと</rt></ruby>のものです。"
+    },
+    {
+        question: "ネットをつかうときに<ruby>一<rt>いち</rt></ruby><ruby>番<rt>ばん</rt></ruby><ruby>大<rt>たい</rt></ruby><ruby>切<rt>せつ</rt></ruby>なことは？",
+        options: [
+            "やさしく、あんぜんにつかう",
+            "なんでもじゆうにする",
+            "<ruby>夜<rt>よる</rt></ruby>おそくまでつかう"
+        ],
+        answer: 0,
+        explanation: "ネットはルールを<ruby>守<rt>まも</rt></ruby>って、やさしくあんぜんにつかうことが<ruby>大<rt>たい</rt></ruby><ruby>切<rt>せつ</rt></ruby>です。"
     }
 ];
