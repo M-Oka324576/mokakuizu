@@ -1,0 +1,116 @@
+/* 全体のリセットと背景 */
+body {
+    font-family: sans-serif;
+    background-color: #f7f9fa;
+    margin: 0;
+    padding: 40px 20px;
+}
+
+/* クイズの外枠 */
+#quiz-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* タイトル */
+#quiz-container h2 {
+    text-align: center;
+    color: #333;
+    margin-top: 0;
+}
+
+/* 進み具合のテキスト */
+#progress-text {
+    text-align: center;
+    color: #666;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+/* 問題文 */
+#question-text {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+/* ボタンを並べるエリア */
+#options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* 選択肢のボタン（通常時） */
+#options-container button {
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    background-color: white;
+    color: #007bff;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* 選択肢のボタン（マウスを乗せたとき） */
+#options-container button:hover:not(:disabled) {
+    background-color: #f0f8ff;
+}
+
+/* 選択肢のボタン（クリックして無効化されたとき） */
+#options-container button:disabled {
+    cursor: default;
+}
+
+/* 結果メッセージと解説 */
+#result-message {
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* 「次の問題へ」ボタン */
+#next-btn {
+    display: none;
+    margin-top: 25px;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#next-btn:hover {
+    background-color: #0056b3;
+}
+
+/* 結果画面の「もういちどチャレンジ」ボタン */
+#restart-btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#restart-btn:hover {
+    background-color: #218838;
+}
