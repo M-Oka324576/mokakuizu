@@ -52,7 +52,7 @@ window.allQuizData = [
             "おうちの<ruby>人<rt>ひと</rt></ruby>や<ruby>先<rt>せん</rt></ruby><ruby>生<rt>せい</rt></ruby>に<ruby>相<rt>そう</rt></ruby><ruby>談<rt>だん</rt></ruby>する"
         ],
         answer: 1,
-        explanation: "<ruby>一<rt>ひと</rt></ruby>りで<ruby>悩<rt>なや</rt></ruby>まず、<ruby>大<rt>おとな</rt></ruby>に<ruby>相<rt>そう</rt></ruby><ruby>談<rt>だん</rt></ruby>しましょう。"
+        explanation: "<ruby>一<rt>ひと</rt></ruby>りで<ruby>悩<rt>なや</rt></ruby>まず、<ruby>大<rt><ruby>人<rt>おとな</rt></ruby>に<ruby>相<rt>そう</rt></ruby><ruby>談<rt>だん</rt></ruby>しましょう。"
     },
     {
         question: "インターネットででてきた<ruby>情<rt>じょう</rt></ruby><ruby>報<rt>ほう</rt></ruby>はすべて<ruby>正<rt>ただ</rt></ruby>しい？",
