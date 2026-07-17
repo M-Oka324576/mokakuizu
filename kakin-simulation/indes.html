@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>勇者のハッピー宝物屋 - 課金体験シミュレーター</title>
+    <style>
+        :root {
+            --primary: #5d4037;
+            --accent: #ffb300;
+            --bg-gradient: linear-gradient(135deg, #e0f2fe 0%, #ch7dd9 100%);
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(to bottom, #b3e5fc, #e3f2fd);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        #game-wrapper {
+            max-width: 1024px;
+            width: 100%;
+            background: white;
+            border: 8px solid var(--primary);
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ダッシュボード（上部ステータス） */
+        .dashboard {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: #4e342e;
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            font-size: 18px;
+            border-bottom: 4px solid var(--primary);
+        }
+
+        .dash-wallet { color: #ff8a80; }
+        .dash-jewel { color: #80d8ff; }
+        .dash-power { color: #b9f6ca; }
+
+        /* 元画像を表示するエリア */
+        .image-container {
+            width: 100%;
+            position: relative;
+            background: #ccc;
+            line-height: 0;
+        }
+
+        .base-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* 操作パネル（下部） */
+        .control-panel {
+            background: #fffde7;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            border-top: 4px solid var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .control-panel { grid-template-columns: 1fr; }
+        }
+
+        .panel-section {
+            background: white;
+            border: 3px solid var(--primary);
+            border-radius: 16px;
+            padding: 15px;
+        }
+
+        .section-title {
+            margin-top: 0;
+            background: var(--accent);
+            color: #3e2723;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 16px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* ボタン・グリッド */
+        .action-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .action-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            background: #fafafa;
+        }
+
+        .action-card:hover { border-color: var(--accent); }
+
+        .item-desc h4 { margin: 0 0 4px 0; color: #424242; }
+        .item-desc p { margin: 0; font-size: 12px; color: #757575; }
+
+        .btn-buy {
+            background: #4caf50;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px #2e7d32;
+        }
+        .btn-buy:active { transform: translateY(2px); box-shadow: 0 2px #2e7d32; }
+        .btn-buy:disabled { background: #9e9e9e; box-shadow: none; cursor: not-allowed; }
+
+        /* コンソールログ */
+        .console-log {
+            background: #212121;
+            color: #eeff41;
+            font-family: monospace;
+            padding: 12px;
+            border-radius: 8px;
+            height: 120px;
+            overflow-y: auto;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* 決済ボタンエリア */
+        .footer-action {
+            text-align: center;
+            padding: 15px;
+            background: #4e342e;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #ff5722, #e64a19);
+            color: white;
+            border: 3px solid white;
+            padding: 12px 50px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+
+<div id="game-wrapper">
+    <!-- ダッシュボード -->
+    <div class="dashboard">
+        <div class="dash-wallet">💳 現実の残り予算: ￥<span id="txt-money">100,000</span></div>
+        <div class="dash-jewel">💎 所持ジュエル: <span id="txt-jewel">15,000</span></div>
+        <div class="dash-power">⚔️ 勇者の戦闘力: <span id="txt-power">7</span></div>
+    </div>
+
+    <!-- 元画像表示エリア -->
+    <div class="image-container">
+        <!-- 同じフォルダにあるimage_98a7cf.jpgを読み込みます -->
+        <img src="image_98a7cf.jpg" alt="勇者のハッピー宝物屋" class="base-image" onerror="this.style.display='none'; alert('画像 [image_98a7cf.jpg] が見つかりません。HTMLと同じフォルダに配置してください！')">
+    </div>
+
+    <!-- 操作パネル -->
+    <div class="control-panel">
+        <!-- 左側：リアルマネー購入 -->
+        <div class="panel-section">
+            <h3 class="section-title">現金でジュエル・パックを購入</h3>
+            <div class="action-grid">
+                <div class="action-card" style="background: #fff9c4;">
+                    <div class="item-desc">
+                        <h4>すごい勇者のスターターキット</h4>
+                        <p>価格: ￥10,000 (1回限定) / 💎+5,000、戦闘力+150</p>
+                    </div>
+                    <button class="btn-buy" id="btn-starter" onclick="buyStarter()">購入</button>
+                </div>
+                <div class="action-card">
+                    <div class="item-desc">
+                        <h4>ジュエル 4,500個パック</h4>
+                        <p>価格: ￥4,500 / 💎+4,500</p>
+                    </div>
+                    <button class="btn-buy" onclick="buyJewel(4500, 4500)">購入</button>
+                </div>
+                <div class="action-card">
+                    <div class="item-desc">
+                        <h4>ジュエル 1,600個パック</h4>
+                        <p>価格: ￥1,600 / 💎+1,600</p>
+                    </div>
+                    <button class="btn-buy" onclick="buyJewel(1600, 1600)">購入</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 右側：ジュエル消費交換 -->
+        <div class="panel-section">
+            <h3 class="section-title">貯めたジュエルで装備と交換</h3>
+            <div class="action-grid">
+                <div class="action-card">
+                    <div class="item-desc">
+                        <h4>セレスティア・アーマーセット</h4>
+                        <p>必要: 💎4,500 / 戦闘力+200</p>
+                    </div>
+                    <button class="btn-buy" onclick="exchangeGear('セレスティアアーマー', 4500, 200)">交換</button>
+                </div>
+                <div class="action-card">
+                    <div class="item-desc">
+                        <h4>エピック・スター武器パック</h4>
+                        <p>必要: 💎3,500 / 戦闘力+150</p>
+                    </div>
+                    <button class="btn-buy" onclick="exchangeGear('エピックスター武器', 3500, 150)">交換</button>
+                </div>
+                <div class="action-card">
+                    <div class="item-desc">
+                        <h4>パワーブーストパック</h4>
+                        <p>必要: 💎1,600 / 戦闘力+50</p>
+                    </div>
+                    <button class="btn-buy" onclick="exchangeGear('パワーブースト', 1600, 50)">交換</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- リアルタイムログ（コンソール） -->
+    <div style="padding: 0 20px 10px 20px; background: #fffde7;">
+        <div class="console-log" id="log-box">
+            [システム] 課金シミュレーターが正常に起動しました。初期ジュエル12,450個を支給しています。画像を見ながら効率よく勇者を最強に育て上げてください。<br>
+        </div>
+    </div>
+
+    <!-- 決定（結果発表） -->
+    <div class="footer-action">
+        <button class="btn-submit" onclick="showResult()">右下の「決定」ボタンを押して清算</button>
+    </div>
+</div>
+
+<script>
+    // ゲームの初期ステータス（JavaScriptオブジェクト）
+    let gameState = {
+        money: 100000,       // 現実の残り予算（円）
+        jewel: 5000,        // 画像の初期ジュエル数を再現
+        power: 7,           // 初期戦闘力（画像右下の 43+13+41 をベースに算出）
+        totalSpent: 0,       // 累計課金額
+        hasStarter: false    // スターターキット購入フラグ
+    };
+
+    // 画面の数値を最新の状態に更新するJavaScript関数
+    function render() {
+        document.getElementById('txt-money').innerText = gameState.money.toLocaleString();
+        document.getElementById('txt-jewel').innerText = gameState.jewel.toLocaleString();
+        document.getElementById('txt-power').innerText = gameState.power.toLocaleString();
+
+        // スターターキットは1回限りのため制限
+        if (gameState.hasStarter) {
+            document.getElementById('btn-starter').disabled = true;
+            document.getElementById('btn-starter').innerText = "購入済み";
+        }
+    }
+
+    // ログを追加するJavaScript関数
+    function pushLog(text) {
+        const logBox = document.getElementById('log-box');
+        logBox.innerHTML += `> ${text}<br>`;
+        logBox.scrollTop = logBox.scrollHeight; // 常に最新のログにスクロール
+    }
+
+    // スターターキット（現金1万円）の購入処理
+    function buyStarter() {
+        if (gameState.money < 10000) {
+            pushLog("【警告】お財布の現金が足りません！これ以上の課金は不可能です。");
+            return;
+        }
+        gameState.money -= 10000;
+        gameState.totalSpent += 10000;
+        gameState.jewel += 5000;
+        gameState.power += 150;
+        gameState.hasStarter = true;
+
+        pushLog("￥10,000を決済。すごい勇者のスターターキットを購入！ 💎5,000個を獲得し、戦闘力が150アップしました。");
+        render();
+    }
+
+    // 通常ジュエルパック（現金）の購入処理
+    function buyJewel(cost, amount) {
+        if (gameState.money < cost) {
+            pushLog("【警告】お財布の現金が足りません！");
+            return;
+        }
+        gameState.money -= cost;
+        gameState.totalSpent += cost;
+        gameState.jewel += amount;
+
+        pushLog(`￥${cost.toLocaleString()}を決済。ジュエルパックを購入し、💎+${amount}個を獲得しました。`);
+        render();
+    }
+
+    // ジュエルを消費して装備を交換する処理
+    function exchangeGear(gearName, costJewel, powerUp) {
+        if (gameState.jewel < costJewel) {
+            pushLog(`【ジュエル不足】${gearName}の交換には💎${costJewel}が必要です。左側のパネルでチャージしてください。`);
+            return;
+        }
+        gameState.jewel -= costJewel;
+        gameState.power += powerUp;
+
+        pushLog(`💎${costJewel}を消費。課金装備【${gearName}】を装着！ 勇者の戦闘力が ${powerUp} アップしました！`);
+        render();
+    }
+
+    // 最終評価（ゲームクリア・清算）
+    function showResult() {
+        let rank = "S (無課金王)";
+        
+        // 効率性を評価するロジック
+
+        if (gameState.money <= 20000) {
+            rank = "E (ただの浪費家)";
+        } else if (gameState.money <= 50000) {
+            rank = "D (プロ廃課金勇者)";
+        } else if (gameState.power >= 757 && gameState.money <= 85000) {
+            rank = "C (伝説の超コスパ王)";
+        } else if (gameState.money <= 85000) {
+            rank = "B (一流のガチ課金兵)";
+        } else if (gameState.money <= 90000) {
+            rank = "A (一般的な微課金プレイヤー)";
+        }
+
+
+
+        alert(
+            `【最終課金リザルト】\n\n` +
+            `⚔️ 最終戦闘力: ${gameState.power}\n` +
+            `💸 支払ったリアルマネー: ￥${gameState.totalSpent.toLocaleString()}\n` +
+//            `👛 手元に残った現金: ￥${gameState.money.toLocaleString()}\n` +
+            `💎 余ったジュエル: ${gameState.jewel}個\n\n` +
+            `あなたの課金評価ランク: 【 ${rank} 】`
+        );
+    }
+
+    // 初回読み込み時に表示を同期
+    render();
+</script>
+
+</body>
+</html>
